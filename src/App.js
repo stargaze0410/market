@@ -1,13 +1,16 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import PrimarySearchAppBar from "./Components/Navbar/Navbar";
+import ProductContextProvider from "./context/ProductContext";
 import MainRoutes from "./MainRoutes";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <PrimarySearchAppBar />
-      <MainRoutes />
+      <ProductContextProvider>
+        <PrimarySearchAppBar />
+        <MainRoutes />
+      </ProductContextProvider>
     </BrowserRouter>
   );
 };

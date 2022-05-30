@@ -1,3 +1,24 @@
 {
-  "products": []
+  "products": [
+    {
+      "title": "hjhj",
+      "type": "hjhjk",
+      "description": "hjhjk",
+      "price": "hjkhjk",
+      "img1": "hjkhjkh",
+      "img2": "kkjhjkh",
+      "img3": "kjhjkh",
+      "id": 1
+    },
+    {
+      "title": "hj",
+      "type": "hj",
+      "description": "hjh",
+      "price": "jh",
+      "img1": "jhj",
+      "img2": "hj",
+      "img3": "hjh",
+      "id": 2
+    }
+  ]
 }

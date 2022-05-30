@@ -192,6 +192,9 @@ export default function PrimarySearchAppBar() {
           <NavLink to="/add">
             <Button variant="contained">Add Product</Button>
           </NavLink>
+          <NavLink to="/list">
+            <Button variant="contained">Products</Button>
+          </NavLink>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
