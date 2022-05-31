@@ -1,20 +1,19 @@
 import { Button, TextField } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
 
-const initObj = {
-  title: "",
-  type: "",
-  description: "",
-  price: "",
-  img1: "",
-  img2: "",
-  img3: "",
-};
+const EditProduct = () => {
+  const { productDetails, getProductsDetails, editProduct } =
+    useContext(productContext);
 
-const AddProduct = () => {
-  const { addProduct } = useContext(productContext);
-  const [inpValues, setInpValues] = useState(initObj);
+  let { id } = useParams();
+
+  useEffect(() => {
+    getProductsDetails(id);
+  }, []);
+
+  const [inpValues, setInpValues] = useState(productDetails);
 
   const handleChange = (e) => {
     let obj = {
@@ -22,25 +21,11 @@ const AddProduct = () => {
       [e.target.name]: e.target.value,
     };
     setInpValues(obj);
-    // console.log(obj);
   };
 
   const handleSave = (e) => {
     e.preventDefault();
-    if (
-      !inpValues.title.trim() ||
-      !inpValues.type.trim() ||
-      !inpValues.description.trim() ||
-      !inpValues.price.trim() ||
-      !inpValues.img1.trim() ||
-      !inpValues.img2.trim() ||
-      !inpValues.img3.trim()
-    ) {
-      alert("1111111");
-      return;
-    }
-    addProduct(inpValues);
-    setInpValues(initObj);
+    editProduct(id, inpValues);
   };
 
   return (
@@ -102,10 +87,10 @@ const AddProduct = () => {
         onChange={(e) => handleChange(e)}
       />
       <Button type="submit" variant="contained">
-        Save
+        Edit
       </Button>
     </form>
   );
 };
 
-export default AddProduct;
+export default EditProduct;
