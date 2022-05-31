@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AddProduct from "./Components/Admin/AddProduct/AddProduct";
+import Login from "./Components/Auth/Login";
 import Home from "./Components/Home/Home";
 import ProductsDetails from "./Components/Products/ProductsDetails";
 import ProductsList from "./Components/Products/ProductsList";
@@ -14,6 +15,7 @@ const MainRoutes = () => {
       <Route path="/list" element={<ProductsList />} />
       <Route path="/details/:id" element={<ProductsDetails />} />
       <Route path="/edit/:id" element={<EditProduct />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };
