@@ -23,12 +23,15 @@ const ProductsList = () => {
     console.log("params With Type");
     return {
       type: type,
+      q: searchParams.get("q"),
     };
   };
 
   const paramsNoType = () => {
     console.log("params No Type");
-    return {};
+    return {
+      q: searchParams.get("q") || "",
+    };
   };
 
   useEffect(() => {

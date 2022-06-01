@@ -17,6 +17,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import LiveSearch from "../LiveSearch/LiveSearch";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -179,7 +180,7 @@ export default function PrimarySearchAppBar() {
           >
             MUI
           </Typography>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -187,7 +188,8 @@ export default function PrimarySearchAppBar() {
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
             />
-          </Search>
+          </Search> */}
+          <LiveSearch />
           <NavLink to="/">
             <Button variant="contained">Home</Button>
           </NavLink>

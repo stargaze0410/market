@@ -17,11 +17,7 @@ const Filter = ({ type, setType }) => {
           value={type}
           onChange={(e) => setType(e.target.value)}
         >
-          <FormControlLabel
-            value="JavaLovery"
-            control={<Radio />}
-            label="Laptop"
-          />
+          <FormControlLabel value="Laptop" control={<Radio />} label="Laptop" />
           <FormControlLabel value="Phone" control={<Radio />} label="Phone" />
           <FormControlLabel
             value="Accessories"
