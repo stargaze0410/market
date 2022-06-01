@@ -1,6 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { productContext } from "../../../context/ProductContext";
 
 const EditProduct = () => {
@@ -8,6 +8,8 @@ const EditProduct = () => {
     useContext(productContext);
 
   let { id } = useParams();
+
+  // const navigate = useNavigate();
 
   useEffect(() => {
     getProductsDetails(id);
@@ -26,6 +28,7 @@ const EditProduct = () => {
   const handleSave = (e) => {
     e.preventDefault();
     editProduct(id, inpValues);
+    // navigate("/list");
   };
 
   return (
@@ -86,6 +89,7 @@ const EditProduct = () => {
         name="img3"
         onChange={(e) => handleChange(e)}
       />
+
       <Button type="submit" variant="contained">
         Edit
       </Button>
