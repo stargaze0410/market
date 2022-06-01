@@ -5,7 +5,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-const Filter = () => {
+const Filter = ({ type, setType }) => {
   return (
     <div>
       <FormControl>
@@ -14,8 +14,14 @@ const Filter = () => {
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="female"
           name="radio-buttons-group"
+          value={type}
+          onChange={(e) => setType(e.target.value)}
         >
-          <FormControlLabel value="Laptop" control={<Radio />} label="Laptop" />
+          <FormControlLabel
+            value="JavaLovery"
+            control={<Radio />}
+            label="Laptop"
+          />
           <FormControlLabel value="Phone" control={<Radio />} label="Phone" />
           <FormControlLabel
             value="Accessories"
