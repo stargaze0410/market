@@ -6,6 +6,7 @@ import Home from "./Components/Home/Home";
 import ProductsDetails from "./Components/Products/ProductsDetails";
 import ProductsList from "./Components/Products/ProductsList";
 import EditProduct from "./Components/Admin/EditProduct/EditProduct";
+import Cart from "./Components/Cart/Cart";
 
 const MainRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const MainRoutes = () => {
       <Route path="/details/:id" element={<ProductsDetails />} />
       <Route path="/edit/:id" element={<EditProduct />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 };

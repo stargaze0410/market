@@ -18,6 +18,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -215,9 +216,11 @@ export default function PrimarySearchAppBar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
+              <NavLink to="/cart">
+                <Badge badgeContent={1} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+              </NavLink>
             </IconButton>
             <IconButton
               size="large"

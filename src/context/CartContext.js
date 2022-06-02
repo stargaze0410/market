@@ -8,6 +8,10 @@ const INIT_STATE = {
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
+    case "GET_CART":
+      return { ...state, cart: action.payload };
+    default:
+      return state;
   }
 };
 
@@ -35,14 +39,34 @@ const CartContextProvider = ({ children }) => {
         return elem.item.id !== productItem.id;
       });
     } else {
-      cart.product.push(newProduct);
+      cart.products.push(newProduct);
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
   };
 
+  const getCart = () => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        products: [],
+      };
+    }
+
+    dispatch({
+      type: "GET_CART",
+      payload: cart,
+    });
+  };
+
+  const deleteCartProduct = () => {
+    localStorage.removeItem("cart");
+  };
+
   return (
-    <cartContext.Provider value={{ addProductToCart }}>
+    <cartContext.Provider
+      value={{ cart: state.cart, addProductToCart, getCart, deleteCartProduct }}
+    >
       {children}
     </cartContext.Provider>
   );
