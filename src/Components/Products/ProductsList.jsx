@@ -7,9 +7,13 @@ import Typography from "@mui/material/Typography";
 import { Box, Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import { NavLink, useSearchParams } from "react-router-dom";
 import Filter from "../Filter/Filter";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { cartContext } from "../../context/CartContext";
 
 const ProductsList = () => {
   const { getProducts, products } = useContext(productContext);
+
+  const { addProductToCart } = useContext(cartContext);
 
   const [searchParams, setSearchParams] = useSearchParams();
   // Хук useSearchParams предназначен для чтения и изменения строки запроса в URL для текущего маршрута. По аналогии с хуком useState возвращает значение и функцию для изменения этого значения.
@@ -20,7 +24,7 @@ const ProductsList = () => {
   const [type, setType] = useState(searchParams.get("type") || "all");
 
   const paramsWithType = () => {
-    console.log("params With Type");
+    // console.log("params With Type");
     return {
       type: type,
       q: searchParams.get("q"),
@@ -28,7 +32,7 @@ const ProductsList = () => {
   };
 
   const paramsNoType = () => {
-    console.log("params No Type");
+    // console.log("params No Type");
     return {
       q: searchParams.get("q") || "",
     };
@@ -90,6 +94,9 @@ const ProductsList = () => {
                         Share
                       </Button>
                     </NavLink>
+                    <Button onClick={() => addProductToCart(item)}>
+                      <AddShoppingCartIcon />
+                    </Button>
                   </CardActions>
                 </Card>
               </Grid>
