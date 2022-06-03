@@ -19,6 +19,7 @@ import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { cartContext } from "../../context/CartContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,6 +62,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const { cartLenght } = React.useContext(cartContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -217,7 +219,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <NavLink to="/cart">
-                <Badge badgeContent={1} color="error">
+                <Badge badgeContent={cartLenght} color="error">
                   <ShoppingCartIcon />
                 </Badge>
               </NavLink>

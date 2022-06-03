@@ -25,12 +25,14 @@ const Cart = () => {
             ? cart.products.map((elem) => (
                 <tr key={elem.item.id}>
                   <td>
-                    <img src={elem.item.img1} alt="phone" />
+                    <img width={50} src={elem.item.img1} alt="phone" />
                   </td>
                   <td>{elem.item.title}</td>
                   <td>{elem.item.price}</td>
-                  <td>1</td>
-                  <td>200</td>
+                  <td>
+                    <input type="number" value={elem.count} />
+                  </td>
+                  <td>{elem.subPrice}</td>
                   <td>
                     <button onClick={() => deleteCartProduct(elem.item.id)}>
                       Удалить
@@ -41,6 +43,9 @@ const Cart = () => {
             : null}
         </tbody>
       </table>
+
+      <h4>Общая сумма: {cart.totalPrice}</h4>
+      <button>Заказать</button>
     </div>
   );
 };
