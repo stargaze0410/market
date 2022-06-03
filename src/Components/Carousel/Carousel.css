@@ -1,0 +1,30 @@
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+  /* background-color: rgb(162, 233, 244); */
+}
+
+.mySwiper {
+  width: 800px;
+  height: 800px;
+  margin-top: 70px;
+  /* position: absolute; */
+  /* left: 50%; */
+  /* top: 50%; */
+  /* margin-left: -150px; */
+  /* margin-top: -150px; */
+}
+
+.mySwiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.mySwiper .swiper-slide img {
+  display: block;
+  width: 100%;
+}

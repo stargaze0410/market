@@ -23,7 +23,7 @@ const Cart = () => {
         <tbody>
           {cart.products
             ? cart.products.map((elem) => (
-                <tr>
+                <tr key={elem.item.id}>
                   <td>
                     <img src={elem.item.img1} alt="phone" />
                   </td>
@@ -32,7 +32,9 @@ const Cart = () => {
                   <td>1</td>
                   <td>200</td>
                   <td>
-                    <button onClick={() => deleteCartProduct()}>Удалить</button>
+                    <button onClick={() => deleteCartProduct(elem.item.id)}>
+                      Удалить
+                    </button>
                   </td>
                 </tr>
               ))

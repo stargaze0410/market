@@ -4,14 +4,16 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, Button, CardActionArea, CardActions, Grid } from "@mui/material";
+import { Button, CardActionArea, CardActions } from "@mui/material";
+import RestoreFromTrashIcon from "@mui/icons-material/RestoreFromTrash";
 import { NavLink, useSearchParams } from "react-router-dom";
 import Filter from "../Filter/Filter";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { cartContext } from "../../context/CartContext";
+import "./ProductsList.css";
 
 const ProductsList = () => {
-  const { getProducts, products } = useContext(productContext);
+  const { getProducts, products, deleteProduct } = useContext(productContext);
 
   const { addProductToCart } = useContext(cartContext);
 
@@ -56,54 +58,95 @@ const ProductsList = () => {
   }, [type, searchParams]);
 
   return (
-    <>
-      <Filter type={type} setType={setType} />
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-evenly",
-          mt: 5,
-        }}
-      >
+    <div className="main_container">
+      <div className="filter">
+        <Filter type={type} setType={setType} />
+      </div>
+      <div className="container">
         {products
           ? products.map((item) => (
-              <Grid xs={3.5} mb={7}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image={item.image}
-                      alt="green iguana"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {item.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  <CardActions>
-                    <NavLink to={`/details/${item.id}`}>
-                      <Button size="small" color="primary">
-                        Share
-                      </Button>
-                    </NavLink>
-                    <Button onClick={() => addProductToCart(item)}>
-                      <AddShoppingCartIcon />
+              <Card
+                key={item.id}
+                className="card"
+                sx={{
+                  borderRadius: "20px",
+                  width: "300px",
+                  height: "430px ",
+                  marginBottom: "50px",
+                }}
+              >
+                <CardMedia
+                  sx={{
+                    width: "200px",
+                    height: "220px",
+                    alignItems: "center",
+                    margin: "auto",
+                  }}
+                  component="img"
+                  alt={item.title}
+                  height="100"
+                  image={item.img1}
+                />
+                <CardContent sx={{ marginLeft: "20px" }}>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {item.title}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    height="25px"
+                  >
+                    {item.description}
+                  </Typography>
+
+                  <Typography
+                    sx={{
+                      fontWeight: "bold",
+                      fontSize: "15px",
+                      marginTop: "20px",
+                    }}
+                    variant="body2"
+                    color="text.secondary"
+                  >
+                    {item.price}
+                  </Typography>
+                </CardContent>
+                <CardActions
+                  sx={{
+                    justifyContent: "center",
+                    marginBottom: "30px",
+                  }}
+                >
+                  {/* <Button className="btn1" size="small" variant="outlined">
+              Edit
+            </Button> */}
+                  <Button
+                    sx={{
+                      marginRight: "20px",
+                    }}
+                    onClick={() => deleteProduct(item.id)}
+                    className="btn"
+                    size="small"
+                    variant="outlined"
+                  >
+                    Delete <RestoreFromTrashIcon />
+                  </Button>
+                  <NavLink to={`/details/${item.id}`}>
+                    <Button className="btn" size="small" variant="outlined">
+                      Preview
                     </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+                  </NavLink>
+
+                  <Button onClick={(e) => addProductToCart(item)}>
+                    <AddShoppingCartIcon />
+                  </Button>
+                </CardActions>
+              </Card>
             ))
           : null}
-      </Box>
-    </>
+      </div>
+    </div>
   );
 };
 

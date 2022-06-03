@@ -59,8 +59,11 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
-  const deleteCartProduct = () => {
-    localStorage.removeItem("cart");
+  const deleteCartProduct = (id) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.products = cart.products.filter((elem) => elem.item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    getCart();
   };
 
   return (
