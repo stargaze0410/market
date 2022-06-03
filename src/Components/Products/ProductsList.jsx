@@ -11,6 +11,7 @@ import Filter from "../Filter/Filter";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { cartContext } from "../../context/CartContext";
 import "./ProductsList.css";
+import ReactPaginate from "react-paginate";
 
 const ProductsList = () => {
   const { getProducts, products, deleteProduct } = useContext(productContext);
@@ -57,6 +58,18 @@ const ProductsList = () => {
     }
   }, [type, searchParams]);
 
+  // ! Paginate======================
+  const [pageNumber, setPageNumber] = useState(0);
+  const productsLimit = 6;
+  const productVisited = pageNumber * productsLimit;
+
+  const pageCount = Math.ceil(products.length / productsLimit);
+
+  let sliceTwoIndex = productVisited + productsLimit;
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
   return (
     <div className="main_container">
       <div className="filter">
@@ -64,7 +77,7 @@ const ProductsList = () => {
       </div>
       <div className="container">
         {products
-          ? products.map((item) => (
+          ? products.slice(productVisited, sliceTwoIndex).map((item) => (
               <Card
                 key={item.id}
                 className="card"
@@ -145,6 +158,17 @@ const ProductsList = () => {
               </Card>
             ))
           : null}
+        <ReactPaginate
+          previousLabel={"Назад"}
+          nextLabel={"Вперед"}
+          pageCount={pageCount}
+          containerClassName={"paginationBttns"}
+          previousLinkClassName={"previousBttn"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+          onPageChange={changePage}
+        />
       </div>
     </div>
   );
