@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { cartContext } from "../../context/CartContext";
 
 const Cart = () => {
-  const { cart, getCart, deleteCartProduct } = useContext(cartContext);
+  const { cart, getCart, deleteCartProduct, changeProductCount } =
+    useContext(cartContext);
 
   useEffect(() => {
     getCart();
@@ -30,7 +31,13 @@ const Cart = () => {
                   <td>{elem.item.title}</td>
                   <td>{elem.item.price}</td>
                   <td>
-                    <input type="number" value={elem.count} />
+                    <input
+                      type="number"
+                      value={elem.count}
+                      onChange={(e) =>
+                        changeProductCount(elem.item.id, e.target.value)
+                      }
+                    />
                   </td>
                   <td>{elem.subPrice}</td>
                   <td>
@@ -43,7 +50,6 @@ const Cart = () => {
             : null}
         </tbody>
       </table>
-
       <h4>Общая сумма: {cart.totalPrice}</h4>
       <button>Заказать</button>
     </div>
