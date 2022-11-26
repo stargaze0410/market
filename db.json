@@ -11,16 +11,6 @@
       "id": 6
     },
     {
-      "title": "iPhone 13 Pro",
-      "type": "Phone",
-      "description": "Самая большая модернизация камер Pro",
-      "price": 1170,
-      "img1": "https://www.istore.kg/media/products/iphone-13-pro-blue-select.webp",
-      "img2": "https://www.istore.kg/media/products/iphone-13-pro-blue-select.webp",
-      "img3": "https://www.istore.kg/media/products/iphone-13-pro-blue-select.webp",
-      "id": 2
-    },
-    {
       "title": "iPad Pro 12.9\" ",
       "type": "Phone",
       "description": "12,9-дюймовый дисплей Liquid Retina ",
@@ -41,16 +31,6 @@
       "id": 7
     },
     {
-      "title": "iPhone 13 Pro Max",
-      "type": "Phone",
-      "description": "A15 Bionic с 5-ядерным GPU",
-      "price": 1270,
-      "img1": "https://www.istore.kg/media/products/iphone-13-pro-max-green-select.webp",
-      "img2": "",
-      "img3": "",
-      "id": 8
-    },
-    {
       "title": "Watch Series 7 ",
       "type": "Accessories",
       "description": "Nike with Aluminum Case",
@@ -59,36 +39,6 @@
       "img2": "",
       "img3": "",
       "id": 9
-    },
-    {
-      "title": "AirPods Pro",
-      "type": "Accessories",
-      "description": "Активное шумоподавление ",
-      "price": 225,
-      "img1": "https://www.istore.kg/media/products/AirPods-Pro-1.webp",
-      "img2": "",
-      "img3": "",
-      "id": 10
-    },
-    {
-      "title": "Watch Series 7 ",
-      "type": "Accessories",
-      "description": "With Stainless Steel Case",
-      "price": 900,
-      "img1": "https://www.istore.kg/media/products/stainless-graphite-41.webp",
-      "img2": "",
-      "img3": "",
-      "id": 11
-    },
-    {
-      "title": "iPhone 13 Pro Max",
-      "type": "Phone",
-      "description": "A15 Bionic с 5-ядерным GPU",
-      "price": 1270,
-      "img1": "https://www.istore.kg/media/products/iphone-13-pro-max-green-select.webp",
-      "img2": "",
-      "img3": "",
-      "id": 17
     },
     {
       "title": "Watch SE",
@@ -111,16 +61,6 @@
       "id": 19
     },
     {
-      "title": "qwerty",
-      "type": "asdfgh",
-      "description": "",
-      "price": "",
-      "img1": "",
-      "img2": 300,
-      "img3": "",
-      "id": 16
-    },
-    {
       "title": "MacBook Pro 14\"",
       "type": "Laptop",
       "description": "0-CPU, 16-GPU, 32GB RAM",
@@ -131,14 +71,14 @@
       "id": 178
     },
     {
-      "title": "test",
-      "type": "1234",
-      "description": "hgfhg",
-      "price": 800,
-      "img1": "ng",
-      "img2": "hjgh",
-      "img3": "jhjk",
-      "id": 20
+      "title": " LEXUS",
+      "type": "UX",
+      "description": "Абсолютно новый Lexus UX бросает вызов всем предшественникам. ",
+      "price": "3286000",
+      "img1": "https://l1-cms-3.images.lexus-europe.com/lexusone/lexruruv11/apr-ux-1920_tcm-3173-1497404.jpg",
+      "img2": "https://l1-cms-3.images.lexus-europe.com/lexusone/lexruruv11/apr-ux-1920_tcm-3173-1497404.jpg",
+      "img3": "https://l1-cms-3.images.lexus-europe.com/lexusone/lexruruv11/apr-ux-1920_tcm-3173-1497404.jpg",
+      "id": 179
     }
   ]
 }
