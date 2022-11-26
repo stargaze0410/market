@@ -11,6 +11,19 @@
       "id": 6
     },
     {
+<<<<<<< HEAD
+=======
+      "title": "iPhone 13 Pro",
+      "type": "Phongdfgdfgdfg",
+      "description": "Самая большая модернизация камер Pro",
+      "price": 1170,
+      "img1": "https://www.istore.kg/media/products/iphone-13-pro-blue-select.webp",
+      "img2": "https://www.istore.kg/media/products/iphone-13-pro-blue-select.webp",
+      "img3": "https://www.istore.kg/media/products/iphone-13-pro-blue-select.webp",
+      "id": 2
+    },
+    {
+>>>>>>> 30a17315f31bfd66cc116a75d965322effcb5ca2
       "title": "iPad Pro 12.9\" ",
       "type": "Phone",
       "description": "12,9-дюймовый дисплей Liquid Retina ",

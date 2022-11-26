@@ -9,7 +9,7 @@ const EditProduct = () => {
 
   let { id } = useParams();
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProductsDetails(id);
@@ -28,7 +28,7 @@ const EditProduct = () => {
   const handleSave = (e) => {
     e.preventDefault();
     editProduct(id, inpValues);
-    // navigate("/list");
+    navigate("/list");
   };
 
   return (

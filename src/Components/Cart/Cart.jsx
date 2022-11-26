@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { cartContext } from "../../context/CartContext";
+import "./Cart.css";
 
 const Cart = () => {
   const { cart, getCart, deleteCartProduct, changeProductCount } =
@@ -10,30 +11,31 @@ const Cart = () => {
   }, []);
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Фото</th>
-            <th>Название</th>
-            <th>Цена</th>
-            <th>Количество</th>
-            <th>Сумма продукта</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.products
-            ? cart.products.map((elem) => (
+    <div className="cart">
+      {cart.products ? (
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Фото</th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Сумма продукта</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.products.map((elem) => (
                 <tr key={elem.item.id}>
                   <td>
-                    <img width={50} src={elem.item.img1} alt="phone" />
+                    <img src={elem.item.img1} alt="product img" />
                   </td>
                   <td>{elem.item.title}</td>
                   <td>{elem.item.price}</td>
                   <td>
                     <input
-                      type="number"
                       value={elem.count}
+                      type="number"
                       onChange={(e) =>
                         changeProductCount(elem.item.id, e.target.value)
                       }
@@ -46,12 +48,15 @@ const Cart = () => {
                     </button>
                   </td>
                 </tr>
-              ))
-            : null}
-        </tbody>
-      </table>
-      <h4>Общая сумма: {cart.totalPrice}</h4>
-      <button>Заказать</button>
+              ))}
+            </tbody>
+          </table>
+          <h4>Общая сумма: {cart.totalPrice}</h4>
+          <button>Оформить заказ</button>
+        </div>
+      ) : (
+        <h2>Loading...</h2>
+      )}
     </div>
   );
 };

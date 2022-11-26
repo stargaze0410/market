@@ -58,16 +58,30 @@ const ProductsList = () => {
     }
   }, [type, searchParams]);
 
+<<<<<<< HEAD
   // paginate
 
   const [pageNumber, setPageNumber] = useState(0);
   const productsLimit = 6;
   const productVisited = pageNumber * productsLimit;
   const pageCount = Math.ceil(products.length / productsLimit);
+=======
+  // ! Paginate======================
+  const [pageNumber, setPageNumber] = useState(0);
+  const productsLimit = 6;
+  const productVisited = pageNumber * productsLimit;
+
+  const pageCount = Math.ceil(products.length / productsLimit);
+
+>>>>>>> 30a17315f31bfd66cc116a75d965322effcb5ca2
   let sliceTwoIndex = productVisited + productsLimit;
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 30a17315f31bfd66cc116a75d965322effcb5ca2
   return (
     <div className="main_container">
       <div className="filter">
@@ -164,6 +178,10 @@ const ProductsList = () => {
           previousLinkClassName={"previousBttn"}
           nextLinkClassName={"nextBttn"}
           disabledClassName={"paginationDisabled"}
+<<<<<<< HEAD
+=======
+          activeClassName={"paginationActive"}
+>>>>>>> 30a17315f31bfd66cc116a75d965322effcb5ca2
           onPageChange={changePage}
         />
       </div>

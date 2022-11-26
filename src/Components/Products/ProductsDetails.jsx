@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { productContext } from "../../context/ProductContext";
 import Container from "@mui/material/Container";
@@ -168,6 +168,9 @@ const ProductDetails = () => {
             >
               Добавить в корзину
             </Button>
+            <NavLink to={`/edit/${productDetails.id}`}>
+              <Button>Edit</Button>
+            </NavLink>
             <Alert
               severity="info"
               variant="outlined"
